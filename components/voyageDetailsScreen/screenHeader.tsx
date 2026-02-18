@@ -13,11 +13,10 @@ export default function ScreenHeader() {
           justifyContent: "space-between",
           paddingHorizontal: 16,
           paddingVertical: 10,
-          //   backgroundColor: "#f0f0f0",
         }}
       >
         <Text style={{ fontFamily: "Graphik-Medium", fontSize: 24, fontWeight: "medium" }}>Voyages</Text>
-        <Pressable style={{ backgroundColor: "#E0E0E0", padding: 8, borderRadius: 100 }}>
+        <Pressable style={({ pressed }) => ({ backgroundColor: pressed ? "#e0e0e0" : "#f0f0f0", padding: 8, borderRadius: 100 })}>
           <AntDesign name="bars" size={18} color="#1e1e1e" />
         </Pressable>
       </View>

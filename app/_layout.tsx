@@ -1,7 +1,6 @@
 import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
-import { StatusBar } from "expo-status-bar";
 import "react-native-reanimated";
 
 import { useColorScheme } from "@/hooks/use-color-scheme";
@@ -15,6 +14,8 @@ export default function RootLayout() {
 
   const [fontsLoaded] = useFonts({
     "Graphik-Medium": require("../assets/fonts/Graphik-Medium.ttf"),
+    "Graphik-Bold": require("../assets/fonts/Graphik-Bold.ttf"),
+    "Graphik-Semibold": require("../assets/fonts/Graphik-Semibold.ttf"),
   });
 
   if (!fontsLoaded) {
@@ -27,7 +28,6 @@ export default function RootLayout() {
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: "modal", title: "Modal" }} />
       </Stack>
-      <StatusBar style="auto" />
     </ThemeProvider>
   );
 }

@@ -1,20 +1,13 @@
+import { getDateInfo } from "@/utils/dateUtils";
 import React from "react";
 import { Image, Text, View } from "react-native";
 
-export default function BookingDateCard({ start, end }: { start: string; end: string }) {
-  const getDateInfo = (dateString: string): any => {
-    const date = new Date(dateString);
+type BookingDateCardProps = {
+  start: string;
+  end: string;
+};
 
-    const weekday = date.toLocaleDateString("fr-FR", { weekday: "long", timeZone: "Europe/Paris" });
-    const day = date.getDate();
-    const month = date.toLocaleDateString("fr-FR", { month: "long", timeZone: "Europe/Paris" });
-
-    const hour = date.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "Europe/Paris" });
-
-    return { weekday, day, month, hour };
-  };
-
-  console.log(getDateInfo(start));
+export default function BookingDateCard({ start, end }: BookingDateCardProps) {
   return (
     <View
       style={{
@@ -66,9 +59,6 @@ export default function BookingDateCard({ start, end }: { start: string; end: st
                 borderRadius: 24,
                 paddingLeft: 8,
                 paddingRight: 8,
-                // paddingBottom: 5,
-                // marginTop: 10,
-
                 //BoxShadow iOS
                 shadowColor: "#898989",
                 shadowOffset: { width: 0, height: 8 },
@@ -90,10 +80,9 @@ export default function BookingDateCard({ start, end }: { start: string; end: st
                 }}
               >
                 <View style={{ gap: 4, flexDirection: "row", alignItems: "center" }}>
-                  {/* image in folder assets/images */}
                   <Image source={require("../../assets/images/check-in.png")} style={{ width: 70, height: 70, borderRadius: 10 }} />
-                  <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-                    <Text style={{ fontFamily: "Graphik-Medium", fontSize: 16 }}>Arrivé à partir de {getDateInfo(start)?.hour}</Text>
+                  <View style={{ flex: 1, justifyContent: "center", alignItems: "flex-start", paddingLeft: 10 }}>
+                    <Text style={{ fontFamily: "Graphik-Semibold", fontSize: 14 }}>Arrivé à partir de {getDateInfo(start)?.hour}</Text>
                   </View>
                 </View>
               </View>
@@ -103,7 +92,7 @@ export default function BookingDateCard({ start, end }: { start: string; end: st
         {/* check out  */}
         <View style={{ flexDirection: "row", gap: 4 }}>
           <View style={{ flexDirection: "column", alignItems: "center", gap: 4, width: 40 }}>
-            <Text style={{ fontFamily: "Graphik-Medium", fontSize: 16 }}>{getDateInfo(end)?.weekday.substring(0, 3)}.</Text>
+            <Text style={{ fontFamily: "Graphik-Semibold", fontSize: 14 }}>{getDateInfo(end)?.weekday.substring(0, 3)}.</Text>
             <View
               style={{
                 width: 40,
@@ -156,8 +145,8 @@ export default function BookingDateCard({ start, end }: { start: string; end: st
               >
                 <View style={{ gap: 4, flexDirection: "row", alignItems: "center" }}>
                   <Image source={require("../../assets/images/check-out.png")} style={{ width: 70, height: 70, borderRadius: 10 }} />
-                  <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-                    <Text style={{ fontFamily: "Graphik-Medium", fontSize: 16 }}>Départ à partir de {getDateInfo(end)?.hour}</Text>
+                  <View style={{ flex: 1, justifyContent: "center", alignItems: "flex-start", paddingLeft: 10 }}>
+                    <Text style={{ fontFamily: "Graphik-Medium", fontSize: 14 }}>Départ avant {getDateInfo(end)?.hour}</Text>
                   </View>
                 </View>
               </View>
