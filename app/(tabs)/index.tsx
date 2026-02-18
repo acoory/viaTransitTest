@@ -1,7 +1,6 @@
 import BookingDateCard from "@/components/voyageDetailsScreen/bookingDateCard";
 import LocationSection from "@/components/voyageDetailsScreen/locationSection";
-import { ScrollView } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { ScrollView, View } from "react-native";
 
 export type Booking = {
   city: string;
@@ -25,11 +24,11 @@ export default function HomeScreen() {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#fafafa" }} edges={["left", "right", "bottom"]}>
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 150, flexGrow: 1 }} style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: "#fafafa" }}>
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 40 }} style={{ flex: 1 }}>
         <LocationSection booking={booking} />
         <BookingDateCard start={booking.bookingStart} end={booking.bookingEnd} />
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
