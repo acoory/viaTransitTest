@@ -158,5 +158,6 @@ const styles = StyleSheet.create({
     fontFamily: "Graphik-Medium",
     fontSize: 15,
     textAlign: "left",
+    lineHeight: 20,
   },
 });

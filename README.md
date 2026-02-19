@@ -1,4 +1,22 @@
-# Welcome to your Expo app 👋
+# viaTransitTest
+
+## Rendu visuel
+
+Sur la partie visuelle, j'ai essayé d'être le plus fidèle possible à la maquette, notamment sur les espacements, les arrondis et les ombrages. Globalement je pense que le rendu est proche, mais certaines ombres pourraient être ajustées plus finement pour coller exactement à l'original.
+
+## Qualité du code
+
+Au départ j'avais pas mal de styles inline, que j'ai ensuite refactorés vers un `StyleSheet` pour améliorer la lisibilité et la maintenabilité. J'ai aussi extrait le bloc check-in / check-out dans un composant `CheckCard` pour éviter la duplication et rendre le code plus propre.
+
+## Ce que j'aurais amélioré avec plus de temps
+
+Avec plus de temps, j'aurais probablement centralisé davantage les couleurs et les tailles dans un fichier de thème afin d'éviter certaines valeurs "en dur". J'aurais aussi pris un peu plus de temps pour tester le rendu sur différentes tailles d'écran.
+
+## Conclusion
+
+Dans l'ensemble je suis satisfait du résultat, tout en voyant clairement des axes d'amélioration si l'écran devait évoluer dans un contexte produit réel.
+
+---
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
